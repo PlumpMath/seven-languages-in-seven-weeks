@@ -36,8 +36,8 @@
 
 3. Load the curse words and alternatives from a file.
 
-  curse_word_alternatives.dat:
-    ```
+    ```Bash
+    $ ls curse_word_alternatives.dat
     Shoot Pucky
     Darn  Beans
     ```
