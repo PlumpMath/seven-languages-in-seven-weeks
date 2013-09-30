@@ -27,6 +27,9 @@
   Performance off-world development is in SWI-Prolog.
   Source: https://thestrangeloop.com/sessions/real-development-boot-camp-in-swi-prolog
 
+  She has also reported that New Zealand's stock trading system is written in
+  Prolog. Source: https://twitter.com/danielglauser/status/380351969811914752
+
   "Watson was written in mostly Java but also significant chunks of code are
   written C++ and Prolog.".
   Source: http://asmarterplanet.com/blog/2011/02/the-watson-research-team-answers-your-questions.html
