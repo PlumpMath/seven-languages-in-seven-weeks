@@ -19,7 +19,7 @@
     ```
 
 2. Write a `Censor` trait with a method that will replace the curse words
-   **Shoot** and **Darn** with **Pucky** and **Beans** alternatives. Use a map
+   *Shoot* and *Darn* with *Pucky* and *Beans* alternatives. Use a map
    to store the curse words and their alternatives.
 
     ```Scala
