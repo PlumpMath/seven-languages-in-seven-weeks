@@ -15,6 +15,12 @@
    the page.
 
     ```Scala
+    import java.net.URLDecoder
+    import scala.actors._
+    import Actor._
+    import scala.io._
+    import org.apache.commons.lang3.StringEscapeUtils
+
     object PageLoader {
       def loadPage(url: String) =  {
         try {
