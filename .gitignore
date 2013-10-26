@@ -1,3 +1,5 @@
 .classpath
 .project
-/bin
+bin
+book_src
+target
