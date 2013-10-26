@@ -28,7 +28,8 @@
     (defn collection-type
       "Returns the collection type of coll. Can be either :list, :map or :vector."
       [coll]
-      ({clojure.lang.PersistentList     :list
-        clojure.lang.PersistentArrayMap :map
-        clojure.lang.PersistentVector   :vector} (type coll)))
+      (cond
+        (list? coll) :list
+        (map? coll) :map
+        (vector? coll) :vector))
     ```
