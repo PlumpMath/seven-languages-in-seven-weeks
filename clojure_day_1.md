@@ -10,7 +10,7 @@
 
 3. A script for quickly invoking the repl in your environment
 
-  [Leiningen](http://leiningen.org/) allows repl invoking with `$ lein repl`.
+  [Leiningen](http://leiningen.org/) allows repl invocation with `$ lein repl`.
 
 # Do
 
