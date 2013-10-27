@@ -1,43 +1,34 @@
 # Find
 
-1. The implementation of some of the commonly used macros in the Clojure
-   language
+1. Examples using Clojure sequences
 
-  https://github.com/clojure/clojure/blob/master/src/clj/clojure/core.clj
+  http://clojure.org/sequences
 
-2. An example of defining your own lazy sequence
+2. The formal definition of a Clojure function
 
-  - http://clojure.org/lazy
-  - http://clojuredocs.org/clojure_core/clojure.core/lazy-seq
+  http://clojure.org/special_forms#fn
 
-3. The current status of the `defrecord` and `protocol` features (these features
-   were still under development as this book was being developed)
+3. A script for quickly invoking the repl in your environment
 
-  http://clojure.org/datatypes
+  [Leiningen](http://leiningen.org/) allows repl invocation with `$ lein repl`.
 
 # Do
 
-1. Implement an `unless` with an `else` condition using macros.
+1. Implement a function called `(big st n)` that returns true if a string `st`
+   is longer than `n` characters.
 
     ```Clojure
-    (defmacro unless [test-expr then-expr & [else-expr]]
-      (if test-expr else-expr then-expr))
+    (defn big [string n] (> (count string) n))
     ```
 
-2. Write a type using `defrecord` that implements a protocol.
+2. Write a function called `(collection-type coll)` that returns `:list`, `:map`,
+   or `:vector` based on the type of collection `coll`.
 
     ```Clojure
-    (defprotocol Attacker
-      (attack [this attackee]))
-
-    (defrecord WhiteWolf [name] Attacker
-      (attack [this attackee] (println (str name " bites " (:name attackee)))))
-
-    (defrecord Wingbat [name] Attacker
-      (attack [this attackee] (println (str name " screeches at " (:name attackee)))))
-
-    (let [wingbat (Wingbat. "Flurbles")
-          white-wolf (WhiteWolf. "Growlster")]
-      (attack wingbat white-wolf)
-      (attack white-wolf wingbat))
+    (defn collection-type
+      "Returns the collection type of coll. Can be either :list, :map or :vector."
+      [coll]
+      (cond (list? coll) :list
+            (map? coll) :map
+            (vector? coll) :vector))
     ```
