@@ -1,35 +1,43 @@
 # Find
 
-1. Examples using Clojure sequences
+1. The implementation of some of the commonly used macros in the Clojure
+   language
 
-  http://clojure.org/sequences
+  https://github.com/clojure/clojure/blob/master/src/clj/clojure/core.clj
 
-2. The formal definition of a Clojure function
+2. An example of defining your own lazy sequence
 
-  http://clojure.org/special_forms#fn
+  - http://clojure.org/lazy
+  - http://clojuredocs.org/clojure_core/clojure.core/lazy-seq
 
-3. A script for quickly invoking the repl in your environment
+3. The current status of the `defrecord` and `protocol` features (these features
+   were still under development as this book was being developed)
 
-  [Leiningen](http://leiningen.org/) allows repl invocation with `$ lein repl`.
+  http://clojure.org/datatypes
 
 # Do
 
-1. Implement a function called `(big st n)` that returns true if a string `st`
-   is longer than `n` characters.
+1. Implement an `unless` with an `else` condition using macros.
 
     ```Clojure
-    (defn big [string n] (> (count string) n))
+    (defmacro unless [test-expr then-expr & [else-expr]]
+      (if test-expr else-expr then-expr))
     ```
 
-2. Write a function called `(collection-type coll)` that returns `:list`, `:map`,
-   or `:vector` based on the type of collection `coll`.
+2. Write a type using `defrecord` that implements a protocol.
 
     ```Clojure
-    (defn collection-type
-      "Returns the collection type of coll. Can be either :list, :map or :vector."
-      [coll]
-      (cond
-        (list? coll) :list
-        (map? coll) :map
-        (vector? coll) :vector))
+    (defprotocol Attacker
+      (attack [this attackee]))
+
+    (defrecord WhiteWolf [name] Attacker
+      (attack [this attackee] (println (str name " bites " (:name attackee)))))
+
+    (defrecord Wingbat [name] Attacker
+      (attack [this attackee] (println (str name " screeches at " (:name attackee)))))
+
+    (let [wingbat (Wingbat. "Flurbles")
+          white-wolf (WhiteWolf. "Growlster")]
+      (attack wingbat white-wolf)
+      (attack white-wolf wingbat))
     ```
