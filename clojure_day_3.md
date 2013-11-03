@@ -9,7 +9,9 @@
    functions to change the balance of an account.
 
     ```Clojure
-    (defn find-account-by-id "Finds account by ID." [accounts account-id]
+    (defn find-account-by-id
+      "Finds account with the given ID."
+      [accounts account-id]
       (first
         (filter (fn [account] (if (= (account :id) account-id) account)) accounts)))
 
@@ -28,14 +30,14 @@
           account-id operation amount)))
 
     (defn credit
-      "Credits money to the account with the given ID. Does nothing if an account
-      with the given ID doesn't exist."
+      "Credits money to the account with given ID. Does nothing if the account
+      doesn't exist."
       [accounts-ref account-id amount]
       (maybe-mutate-account-balance accounts-ref account-id + amount))
 
     (defn debit
-      "Debits money from the account with the given ID. Does nothing if an account
-      with the given ID doesn't exist."
+      "Debits money from the account with given ID. Does nothing if the account
+      doesn't exist."
       [accounts-ref account-id amount]
       (maybe-mutate-account-balance accounts-ref account-id - amount))
 
