@@ -41,8 +41,8 @@ allEven6 = filter (not . odd)
 2. Write a function that takes a list and returns the same list in reverse.
 
 ```Haskell
-reverse :: [a] -> [a]
-reverse = foldl (flip (:)) []
+reverse' :: [a] -> [a]
+reverse' = foldr (:) []
 ```
 
 3. Write a function that builds two-tuples with all possible combinations of two
